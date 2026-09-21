@@ -45,6 +45,16 @@ header{
     height: 300px;
 }
 
+.borde4{
+    border: 1px solid grey;
+    display: flex;
+    width: 750px;
+    height: 300px;
+    border-left: none;
+    border-bottom: none;
+    border-top: none;
+}
+
 .getafe{
     display: flex;
     align-items: center;
@@ -82,4 +92,11 @@ header{
 .fecha img{
     width: 200px;
     height: 100px;
+}
+
+footer{
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid grey;
+    padding: 30px;
 }
