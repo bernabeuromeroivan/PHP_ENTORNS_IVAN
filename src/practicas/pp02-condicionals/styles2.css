@@ -1,0 +1,15 @@
+body {
+    background-color: #f3f4f6;
+    margin: 0;
+    padding: 30px 20px;
+}
+
+.tabla {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 16px 10px;
+    display: flex;
+    width: 100px;
+    gap: 4px;
+}
