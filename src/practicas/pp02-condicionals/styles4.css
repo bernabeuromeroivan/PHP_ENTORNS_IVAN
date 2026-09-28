@@ -9,3 +9,8 @@
     font-weight: bold;
     padding-bottom: 0;
 }
+
+.divi{
+    border: 1px solid black;
+    gap: 10px;
+}
