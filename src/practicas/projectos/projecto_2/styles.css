@@ -224,3 +224,13 @@ ul{
 .footer span{
     font-size: 12px;
 }
+
+.abajo_izq{
+    background-color: #f0f7ff;
+    display: flex;
+    padding: 20px;
+}
+
+.abajo_txt{
+
+}

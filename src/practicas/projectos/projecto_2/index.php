@@ -89,7 +89,6 @@ $landi = ["Landing page moderna i responsive", "Cataleg de productes artesans", 
 <body>
     <div class="container">
         <header class="encabezado">
-
             <div class="div-header">
                 <div class="parte_izq">
                     <div class="div_logo">
@@ -348,6 +347,19 @@ $landi = ["Landing page moderna i responsive", "Cataleg de productes artesans", 
                         </div>
                     </div>
                 </div>  
+            </div>
+        </div>
+        <div class="abajo">
+            <div class="abajo_izq">
+                <div class="abajo_img">
+                    <img src="assets/grafica.png" alt="">
+                </div>
+                <div class="abajo_txt">
+
+                </div>
+            </div>
+            <div class="abajo_der">
+
             </div>
         </div>     
     </div>
