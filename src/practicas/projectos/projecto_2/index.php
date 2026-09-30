@@ -30,6 +30,7 @@ $tecnologies = ["HTML", "CSS", "PHP", "Docker", "WordPress", "Shopify"];
 $titulo = "Panell intern de projectes";
 $subtit = "Agencia digital · Gestio de projectes de estudi";
 $logo = "assets/layer.png";
+$menu = ["Inici", "Projectes", "Tecnologies", "Sobre"]
 
 ?>
 
@@ -38,15 +39,15 @@ $logo = "assets/layer.png";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <title>Projecto - 2</title>
     <script src="https://kit.fontawesome.com/ba4676a391.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
+    <header class="encabezado">
         <div class="parte_izq">
             <div class="div_logo">
                 <img src="<?= $logo ?>" alt="">
@@ -57,12 +58,10 @@ $logo = "assets/layer.png";
             </div>            
         </div>
         <div class="parte_der">
-            <ul>
-                <button>Inici</button>
-                <button></button>
-                <button></button>
-                <button></button>
-            </ul>
+            <button><?= $menu[0] ?></button>
+            <button><?= $menu[1] ?></button>
+            <button><?= $menu[2] ?></button>
+            <button><?= $menu[3] ?></button>
         </div>
     </header>
 </body>

@@ -18,8 +18,18 @@ img{
     border-radius: 12px;
 }
 
-header{
+.encabezado{
     display: flex;
     line-height: 20px;
     padding: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.parte_der{
+    display: flex;
+}
+
+ul{
+    display: flex;
 }
