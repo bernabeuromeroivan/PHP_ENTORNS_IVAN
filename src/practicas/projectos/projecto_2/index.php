@@ -50,17 +50,27 @@ foreach ($prioritats as $p) {
     }
 }
 
-$boton = "";
+$botons = [];
 foreach ($prioritats as $p) {
     if ($p >= 7) {
-        $boton = "Alta";
+        $botons[] = "Alta";
+    } else if ($p >= 4 && $p <= 6) { // Usamos && (Y) en lugar de || (O)
+        $botons[] = "Mitjana";
+    } else {
+        $botons[] = "Baixa";
     }
-    else if($p >= 4 || $p <= 6){
-        $boton = "Mitjana";
+}
+
+$web_count = 0;
+foreach ($tipus_projectes as $t) {
+    if ($t === "Web") {
+        $web_count++;
     }
-    else{
-        $boton = "Baixa";
-    }
+}
+
+$total_hores = 0;
+foreach ($hores_estimades as $h) {
+    $total_hores += $h;
 }
 
 $caja = ["Projectes", "Prioritat alta", "Hores estimades", "Tecnologies"];
@@ -133,7 +143,7 @@ $landi = ["Landing page moderna i responsive", "Cataleg de productes artesans", 
                     <img src="<?= $hora ?>" alt="">                    
                 </div>
                 <div class="div-txt">
-                    <span class="numero"><?= array_sum($hores_estimades) ?>h</span>
+                    <span class="numero"><?= $total_hores ?>h</span>
                     <p><?= $caja[2] ?></p>
                     <span class="gris"><?= $gris[2] ?></span>                    
                 </div>
@@ -158,7 +168,7 @@ $landi = ["Landing page moderna i responsive", "Cataleg de productes artesans", 
                         <span># <?= $numeros[0] ?></span>
                         <h4 class="nom"><?= $noms_projectes[0] ?></h4>
                         <div class="div-btn">
-                            <button class="noms-boton"><?= $boton ?></button> 
+                            <button class="noms-boton"><?= $botons[0] ?></button> 
                         </div>                        
                     </div>
                     <div class="imagen">
@@ -182,7 +192,7 @@ $landi = ["Landing page moderna i responsive", "Cataleg de productes artesans", 
                         <span># <?= $numeros[1] ?></span>
                         <h4 class="nom"><?= $noms_projectes[1] ?></h4>
                         <div class="div-btn">
-                            <button class="noms-boton"><?= $boton ?></button> 
+                            <button class="noms-boton"><?= $botons[1] ?></button> 
                         </div>                        
                     </div>
                     <div class="imagen">
@@ -206,7 +216,7 @@ $landi = ["Landing page moderna i responsive", "Cataleg de productes artesans", 
                         <span># <?= $numeros[2] ?></span>
                         <h4 class="nom"><?= $noms_projectes[2] ?></h4>
                         <div class="div-btn">
-                            <button class="noms-boton"><?= $boton ?></button> 
+                            <button class="noms-boton"><?= $botons[2] ?></button> 
                         </div>                        
                     </div>
                     <div class="imagen">
@@ -230,7 +240,7 @@ $landi = ["Landing page moderna i responsive", "Cataleg de productes artesans", 
                         <span># <?= $numeros[3] ?></span>
                         <h4 class="nom"><?= $noms_projectes[3] ?></h4>
                         <div class="div-btn">
-                            <button class="noms-boton"><?= $boton ?></button> 
+                            <button class="noms-boton"><?= $botons[3] ?></button> 
                         </div>                        
                     </div>
                     <div class="imagen">
@@ -256,7 +266,7 @@ $landi = ["Landing page moderna i responsive", "Cataleg de productes artesans", 
                         <span># <?= $numeros[4] ?></span>
                         <h4 class="nom"><?= $noms_projectes[4] ?></h4>
                         <div class="div-btn">
-                            <button class="noms-boton"><?= $boton ?></button> 
+                            <button class="noms-boton"><?= $botons[4] ?></button> 
                         </div>                        
                     </div>
                     <div class="imagen">
@@ -280,7 +290,7 @@ $landi = ["Landing page moderna i responsive", "Cataleg de productes artesans", 
                         <span># <?= $numeros[5] ?></span>
                         <h4 class="nom"><?= $noms_projectes[5] ?></h4>
                         <div class="div-btn">
-                            <button class="noms-boton"><?= $boton ?></button> 
+                            <button class="noms-boton"><?= $botons[5] ?></button> 
                         </div>                        
                     </div>
                     <div class="imagen">
@@ -304,7 +314,7 @@ $landi = ["Landing page moderna i responsive", "Cataleg de productes artesans", 
                         <span># <?= $numeros[6] ?></span>
                         <h4 class="nom"><?= $noms_projectes[6] ?></h4>
                         <div class="div-btn">
-                            <button class="noms-boton"><?= $boton ?></button> 
+                            <button class="noms-boton"><?= $botons[6] ?></button> 
                         </div>                        
                     </div>
                     <div class="imagen">
@@ -328,7 +338,7 @@ $landi = ["Landing page moderna i responsive", "Cataleg de productes artesans", 
                         <span># <?= $numeros[7] ?></span>
                         <h4 class="nom"><?= $noms_projectes[7] ?></h4>
                         <div class="div-btn">
-                            <button class="noms-boton"><?= $boton ?></button> 
+                            <button class="noms-boton"><?= $botons[7] ?></button> 
                         </div>                        
                     </div>
                     <div class="imagen">
@@ -349,19 +359,62 @@ $landi = ["Landing page moderna i responsive", "Cataleg de productes artesans", 
                 </div>  
             </div>
         </div>
-        <div class="abajo">
+        <div class="footer-abajo">
+            <!-- Resum automàtic -->
             <div class="abajo_izq">
                 <div class="abajo_img">
                     <img src="assets/grafica.png" alt="">
+                    <div class="abajo_txt">
+                        <h3>Resum Automàtic</h3>
+                        <span>Estadístiques generals del projectes</span>
+                    </div>
                 </div>
-                <div class="abajo_txt">
-
+                <div class="proj">
+                    <div class="caja-stat">
+                        <img src="<?= $carpeta ?>" alt="">
+                        <div>
+                            <span class="numero"><?= count($noms_projectes) ?></span>
+                            <p class="gris">Projectes totals</p>
+                        </div>
+                    </div>
+                    <div class="caja-stat">
+                        <img src="<?= $caution ?>" alt="">
+                        <div>
+                            <span class="numero"><?= $prioritat_alta ?></span>
+                            <p class="gris">Prioritat alta</p>
+                        </div>
+                    </div>
+                    <div class="caja-stat">
+                        <img src="<?= $hora ?>" alt="">
+                        <div>
+                            <span class="numero"><?= $total_hores ?>h</span>
+                            <p class="gris">Hores totals</p>
+                        </div>
+                    </div>
+                    <div class="caja-stat">
+                        <i class="fa-solid fa-globe icon-web"></i>
+                        <div>
+                            <span class="numero"><?= $web_count ?></span>
+                            <p class="gris">Projectes web</p>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="abajo_der">
-
+                <div class="abajo_img">
+                    <i class="fa-solid fa-code icon-tech"></i>
+                    <div class="abajo_txt">
+                        <h3>Tecnologies</h3>
+                        <span>Eines utilitzades en els projectes</span>
+                    </div>
+                </div>
+                <div class="llista-tec">
+                    <?php foreach ($tecnologies as $tec): ?>
+                        <span class="btn-tec"><?= $tec ?></span>
+                    <?php endforeach; ?>
+                </div>
             </div>
-        </div>     
+        </div>   
     </div>
 </body>
 </html>
