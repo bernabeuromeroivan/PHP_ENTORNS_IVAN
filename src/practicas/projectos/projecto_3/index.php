@@ -191,6 +191,38 @@ $targetes = [
                 </div>
             </div>
         </div>
+        <div class="abajo">
+            <div class="resumen">
+                <div class="resumen-izq">
+                    <h3 class="resumen-titulo">Resum de conceptes</h3>
+                    <ul class="resumen-list">
+                        <?php foreach ($tecno as $nombre => $cantidad): ?>
+                            <li>
+                                <span class="concepto-nombre"><?= $nombre ?></span>
+                                <span class="concepto-num"><?= $cantidad ?></span>
+                            </li>
+                        <?php endforeach; ?>    
+                    </ul>
+                </div>
+
+                <div class="resumen-der">
+                    <span class="total">Total de conceptes</span>
+                    <span class="total_t">20</span>
+                </div>
+            </div>
+            <div class="assignatures-card">
+                <h3 class="assignatures-titulo">
+                    📖 Assignatures
+                </h3>
+
+                <div class="assignatures-lista">
+                    <?php foreach ($tecno as $t): ?>
+                        <span class="btn-assignatura"><?= $t ?></span>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+            <div></div>
+        </div>
     </div>
 </body>
 </html>

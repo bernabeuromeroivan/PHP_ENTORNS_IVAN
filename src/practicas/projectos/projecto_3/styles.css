@@ -177,3 +177,119 @@ header{
 .rojo{
     background-color: #FDBBBD;
 }
+
+.resumen-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.abajo{
+    display: flex;
+    gap: 10px;
+}
+
+.resumen {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 20px;
+    margin-left: 40px;
+}
+
+.resumen-izq {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.resumen-titulo {
+    margin: 0 0 12px 0;
+    font-size: 15px;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.resumen-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+    position: relative;
+    padding-left: 14px;
+}
+
+.resumen-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: #60a5fa;
+}
+
+.concepto-nombre {
+    font-size: 13px;
+    color: #475569;
+    font-weight: 500;
+}
+
+.concepto-num {
+    font-size: 13px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.resumen-der {
+    border-left: 1px solid #e2e8f0;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 100px;
+}
+
+.total {
+    font-size: 11px;
+    color: #64748b;
+    margin-bottom: 4px;
+    text-align: center;
+}
+
+.total_t {
+    font-size: 28px;
+    font-weight: 800;
+    color: #0f172a;
+    line-height: 1;
+}
+
+.assignatures-card {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.assignatures-titulo {
+    margin: 0 0 14px 0;
+    font-size: 15px;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.assignatures-lista {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.btn-assignatura {
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
