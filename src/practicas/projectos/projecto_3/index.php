@@ -7,42 +7,57 @@ $targetes = [
         "titol" => "Variables",
         "img" => "assets/img1.png",
         "descripcio" => "Serveixen per guardar informació que després podem utilitzar.",
-        "tecno" => "PHP"
+        "tecno" => "PHP",
+        "destacat" => true
     ],
     [
         "titol" => "If / else",
+        "img" => "assets/img2.png",
         "descripcio" => "Permet executar un codi o un altre segons una condició.",
         "tecno" => "PHP",
+        "destacat" => false
     ],
     [
         "titol" => "Manipular el DOM",
+        "img" => "assets/img3.png",
         "descripcio" => "Permet modificar el contingut de la pàgina des de JavaScript.",
         "tecno" => "JavaScript",
+        "destacat" => true
     ],
     [
         "titol" => "Array i forEach",
+        "img" => "assets/img4.png",
         "descripcio" => "Permet recórrer tots els elements d'un array.",
         "tecno" => "JavaScript",
+        "destacat" => false
     ],
     [
         "titol" => "Components",
+        "img" => "assets/img5.png",
         "descripcio" => "Permeten dividir la interfície en peces reutilitzables.",
         "tecno" => "React",
+        "destacat" => true
     ],
     [
         "titol" => "Estructura HTML5",
+        "img" => "assets/img6.png",
         "descripcio" => "Utilitzem etiquetes semàntiques per organitzar el contingut.",
         "tecno" => "HTML/CSS",
+        "destacat" => false
     ],
     [
         "titol" => "Docker compose",
+        "img" => "assets/img7.png",
         "descripcio" => "Permet aixecar diversos serveis alhora (per exemple, una web i una base de dades).",
         "tecno" => "Docker",
+        "destacat" => true
     ],
     [
         "titol" => "Consultes SQL bàsiques",
+        "img" => "assets/img8.png",
         "descripcio" => "Permeten obtenir informació de la base de dades.",
         "tecno" => "BBDD",
+        "destacat" => false
     ]
 ];
 ?>
@@ -91,123 +106,107 @@ $targetes = [
         </div>
         <div class="cajas">
             <div class="cajas_arriba">
-                <div class="caja1">
-                    <div class="caja1_img">
-                        <img src="assets/php.png" alt="">
-                        <span><?= $tecno[1] ?></span>
+                <?php for ($i = 0; $i < 4; $i++): ?>
+                    <?php
+                    if ($targetes[$i]["tecno"] == "PHP") {
+                        $color = "";
+                    } elseif ($targetes[$i]["tecno"] == "JavaScript") {
+                        $color = "amarillo";
+                    } elseif ($targetes[$i]["tecno"] == "React") {
+                        $color = "azul_claro";
+                    } elseif ($targetes[$i]["tecno"] == "HTML/CSS") {
+                        $color = "verde";
+                    } elseif ($targetes[$i]["tecno"] == "Docker") {
+                        $color = "lila";
+                    } else {
+                        $color = "rojo";
+                    }
+                    ?>
+                    <div class="caja1">
+                        <div class="caja1_img <?= $color ?>">
+                            <span><?= $targetes[$i]["tecno"] ?></span>
+                        </div>
+
+                        <div class="caja1_txt">
+                            <h4>
+                                <?= $targetes[$i]["titol"] ?>
+                                <?php if ($targetes[$i]["destacat"] == true): ?>
+                                    <span class="estrella">★</span>
+                                <?php endif; ?>
+                            </h4>
+                            <span><?= $targetes[$i]["descripcio"] ?></span>
+                            <img src="<?= $targetes[$i]["img"] ?>" alt="">
+                            <span><?= $targetes[$i]["tecno"] ?></span>
+                        </div>
                     </div>
-                    <div class="caja1_txt">
-                        <h4><?= $targetes[0]["titol"] ?></h4>
-                        <span><?= $targetes[0]["descripcio"] ?></span>
-                        <img src="<?= $targetes[0]["img"] ?>" alt="">
-                        <span><?= $tecno[1] ?></span>
-                    </div>                    
-                </div>
-                <div class="caja1">
-                    <div class="caja1_img">
-                        <img src="assets/php.png" alt="">
-                        <span><?= $tecno[1] ?></span>
-                    </div>
-                    <div class="caja1_txt">
-                        <h4><?= $targetes[1]["titol"] ?></h4>
-                        <span><?= $targetes[1]["descripcio"] ?></span>
-                        <img src="<?= $targetes[0]["img"] ?>" alt="">
-                        <span><?= $tecno[1] ?></span>
-                    </div>                    
-                </div>
-                <div class="caja1">
-                    <div class="caja1_img amarillo">
-                        <img src="assets/js.png" alt="">
-                        <span><?= $tecno[2] ?></span>
-                    </div>
-                    <div class="caja1_txt">
-                        <h4><?= $targetes[2]["titol"] ?></h4>
-                        <span><?= $targetes[2]["descripcio"] ?></span>
-                        <img src="<?= $targetes[0]["img"] ?>" alt="">
-                        <span><?= $tecno[2] ?></span>
-                    </div>                    
-                </div>
-                <div class="caja1">
-                    <div class="caja1_img amarillo">
-                        <img src="assets/js.png" alt="">
-                        <span><?= $tecno[2] ?></span>
-                    </div>
-                    <div class="caja1_txt">
-                        <h4><?= $targetes[0]["titol"] ?></h4>
-                        <span><?= $targetes[0]["descripcio"] ?></span>
-                        <img src="<?= $targetes[0]["img"] ?>" alt="">
-                        <span><?= $tecno[2] ?></span>
-                    </div>                    
-                </div>
+                <?php endfor; ?>
             </div>
             <div class="cajas_abajo">
-                <div class="caja1">
-                    <div class="caja1_img azul_claro">
-                        <img src="assets/react.png" alt="">
-                        <span><?= $tecno[3] ?></span>
+                <?php for ($i = 4; $i < 8; $i++): ?>
+                    <?php
+                    if ($targetes[$i]["tecno"] == "PHP") {
+                        $color = "";
+                    } elseif ($targetes[$i]["tecno"] == "JavaScript") {
+                        $color = "amarillo";
+                    } elseif ($targetes[$i]["tecno"] == "React") {
+                        $color = "azul_claro";
+                    } elseif ($targetes[$i]["tecno"] == "HTML/CSS") {
+                        $color = "verde";
+                    } elseif ($targetes[$i]["tecno"] == "Docker") {
+                        $color = "lila";
+                    } else {
+                        $color = "rojo";
+                    }
+                    ?>
+                    <div class="caja1">
+                        <div class="caja1_img <?= $color ?>">
+                            <img src="<?= $config_tecno[$targetes[$i]["tecno"]]["icono"] ?? '' ?>" alt="">
+                            <span><?= $targetes[$i]["tecno"] ?></span>
+                        </div>
+
+                        <div class="caja1_txt">
+                            <h4>
+                                <?= $targetes[$i]["titol"] ?>
+                                <?php if ($targetes[$i]["destacat"] == true): ?>
+                                    <span class="estrella">★</span>
+                                <?php endif; ?>
+                            </h4>
+                            <span><?= $targetes[$i]["descripcio"] ?></span>
+                            <img src="<?= $targetes[$i]["img"] ?>" alt="">
+                            <span><?= $targetes[$i]["tecno"] ?></span>
+                        </div>
                     </div>
-                    <div class="caja1_txt">
-                        <h4><?= $targetes[0]["titol"] ?></h4>
-                        <span><?= $targetes[0]["descripcio"] ?></span>
-                        <img src="<?= $targetes[0]["img"] ?>" alt="">
-                        <span><?= $tecno[3] ?></span>
-                    </div>                    
-                </div>
-                <div class="caja1">
-                    <div class="caja1_img verde">
-                        <img src="assets/html.png" alt="">
-                        <span><?= $tecno[4] ?></span>
-                    </div>
-                    <div class="caja1_txt">
-                        <h4><?= $targetes[1]["titol"] ?></h4>
-                        <span><?= $targetes[1]["descripcio"] ?></span>
-                        <img src="<?= $targetes[0]["img"] ?>" alt="">
-                        <span><?= $tecno[4] ?></span>
-                    </div>                    
-                </div>
-                <div class="caja1">
-                    <div class="caja1_img lila">
-                        <img src="assets/docker.png" alt="">
-                        <span><?= $tecno[5] ?></span>
-                    </div>
-                    <div class="caja1_txt">
-                        <h4><?= $targetes[2]["titol"] ?></h4>
-                        <span><?= $targetes[2]["descripcio"] ?></span>
-                        <img src="<?= $targetes[0]["img"] ?>" alt="">
-                        <span><?= $tecno[5] ?></span>
-                    </div>                    
-                </div>
-                <div class="caja1">
-                    <div class="caja1_img rojo">
-                        <img src="assets/bbdd.png" alt="">
-                        <span><?= $tecno[6] ?></span>
-                    </div>
-                    <div class="caja1_txt">
-                        <h4><?= $targetes[0]["titol"] ?></h4>
-                        <span><?= $targetes[0]["descripcio"] ?></span>
-                        <img src="<?= $targetes[0]["img"] ?>" alt="">
-                        <span><?= $tecno[6] ?></span>
-                    </div>                    
-                </div>
+                <?php endfor; ?>
             </div>
         </div>
         <div class="abajo">
             <div class="resumen">
                 <div class="resumen-izq">
-                    <h3 class="resumen-titulo">Resum de conceptes</h3>
+                    <h3 class="resumen-titulo">📊 Resum</h3>
                     <ul class="resumen-list">
-                        <?php foreach ($tecno as $nombre => $cantidad): ?>
-                            <li>
-                                <span class="concepto-nombre"><?= $nombre ?></span>
-                                <span class="concepto-num"><?= $cantidad ?></span>
-                            </li>
-                        <?php endforeach; ?>    
+                        <?php 
+                        $total = 0;
+                        foreach ($tecno as $t): 
+                            if ($t != "Totes" && $t != "Projectes"): 
+                                $cantidad = 0;
+                                foreach ($targetes as $targeta) {
+                                    if ($targeta["tecno"] == $t) {
+                                        $cantidad++;
+                                    }
+                                }
+                                $total += $cantidad; 
+                                ?>
+                                <li>
+                                    <span class="concepto-nombre"><?= $t ?></span>
+                                    <span class="concepto-num"><?= $cantidad ?></span>
+                                </li>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
                     </ul>
                 </div>
-
                 <div class="resumen-der">
-                    <span class="total">Total de conceptes</span>
-                    <span class="total_t">20</span>
+                    <span class="total">Total</span>
+                    <span class="total_t"><?= $total ?></span>
                 </div>
             </div>
             <div class="assignatures-card">
@@ -221,7 +220,16 @@ $targetes = [
                     <?php endforeach; ?>
                 </div>
             </div>
-            <div></div>
+            <div class="caja_resumen">
+                <h2>🎯 Conceptes destacats</h2>
+                <div class="destacados">
+                    <?php foreach ($targetes as $targeta): ?>
+                        <?php if ($targeta["destacat"] == true): ?>
+                            <p>⭐ <?= $targeta["titol"] ?></p>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                </div>
+            </div>
         </div>
     </div>
 </body>
