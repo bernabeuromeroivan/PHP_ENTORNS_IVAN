@@ -34,23 +34,18 @@ require_once 'pelicules.php';
                 <div class="imatge-box">
                     <img src="<?= $p['imatge'] ?>" alt="<?= $p['titol'] ?>">
                     <div class="info-hover">
-                        <p><strong>Gènere:</strong> <?= $p['genere'] ?></p>
-                        <p><strong>Director:</strong> <?= $p['director'] ?></p>
-                        <p><strong>Sinopsi:</strong> <?= $p['sinopsi'] ?></p>
+                        <p><strong>Horaris:</strong></p>
+                        <?php foreach ($p['horaris'] as $horari): ?>
+                            <span class="horari"><?= $horari ?></span>
+                        <?php endforeach; ?>
+                        <div class="botones">
+                            <p><a href="<?= $p['trailer'] ?>" target="_blank" style="color: #4da6ff;">Veure Tràiler</a></p>
+                            <p><a href="detall.php?id=<?= $p['id'] ?>" style="color: #4da6ff;">Més Detalls</a></p>
+                        </div>
                     </div>
                 </div>
-                <h3><?= $p['titol'] ?></h3>
                 <p><strong>Durada:</strong> <?= $p['durada'] ?></p>
                 <p><strong>Edat:</strong> <?= $p['qualificacio'] ?></p>
-                <p><strong>Horaris:</strong><br>
-                    <?php foreach ($p['horaris'] as $horari): ?>
-                        <span class="horari"><?= $horari ?></span>
-                    <?php endforeach; ?>
-                </p>
-                <div class="botones">
-                    <p><a href="<?= $p['trailer'] ?>" target="_blank" style="color: #4da6ff;">Veure Tràiler</a></p>
-                    <p><a href="detall.php?id=<?= $p['id'] ?>" style="color: #4da6ff;">Més Detalls</a></p>
-                </div>
             </div>
         <?php endforeach; ?>
     </div>

@@ -9,10 +9,6 @@ foreach ($pelicules as $p) {
         $pelicula = $p;
     }
 }
-
-if (!$pelicula) {
-    die("Pel·lícula no trobada.");
-}
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +16,8 @@ if (!$pelicula) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="detall.css">
+    <title>Detalls</title>
 </head>
 <body>
     <a href="index.php">← Tornar a la cartellera</a>
@@ -28,17 +25,15 @@ if (!$pelicula) {
     <div>
         <div class="col-esquerra">
             <img src="<?= $pelicula['imatge'] ?>" alt="<?= $pelicula['titol'] ?>">
+            <p><a href="<?= $pelicula['trailer'] ?>" target="_blank" style="color: #4da6ff;">Veure Tràiler</a></p>
         </div>
-
         <div class="col-dreta">
-            <p><?= $pelicula['sinopsi'] ?></p>
-
+            <p><?= $pelicula['si    nopsi'] ?></p>
             <p><strong>Durada:</strong> <?= $pelicula['durada'] ?></p>
             <p><strong>Director:</strong> <?= $pelicula['director'] ?></p>
             <p><strong>Actors:</strong> <?= implode(', ', $pelicula['repartiment']) ?></p>
             <p><strong>Qualificació:</strong> <?= $pelicula['qualificacio'] ?></p>
             <p><strong>Gènere:</strong> <?= $pelicula['genere'] ?></p>
-
             <p><strong>Horaris:</strong><br><br>
                 <?php foreach ($pelicula['horaris'] as $horari): ?>
                     <span class="horari"><?= $horari ?></span>
