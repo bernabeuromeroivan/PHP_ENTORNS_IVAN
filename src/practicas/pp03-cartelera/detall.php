@@ -28,7 +28,7 @@ foreach ($pelicules as $p) {
             <p><a href="<?= $pelicula['trailer'] ?>" target="_blank" style="color: #4da6ff;">Veure Tràiler</a></p>
         </div>
         <div class="col-dreta">
-            <p><?= $pelicula['si    nopsi'] ?></p>
+            <p><?= $pelicula['sinopsi'] ?></p>
             <p><strong>Durada:</strong> <?= $pelicula['durada'] ?></p>
             <p><strong>Director:</strong> <?= $pelicula['director'] ?></p>
             <p><strong>Actors:</strong> <?= implode(', ', $pelicula['repartiment']) ?></p>

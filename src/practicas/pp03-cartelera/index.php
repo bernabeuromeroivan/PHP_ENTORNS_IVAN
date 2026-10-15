@@ -44,6 +44,7 @@ require_once 'pelicules.php';
                         </div>
                     </div>
                 </div>
+                <p class="titulo"><strong><?= $p['titol'] ?></strong></p>
                 <p><strong>Durada:</strong> <?= $p['durada'] ?></p>
                 <p><strong>Edat:</strong> <?= $p['qualificacio'] ?></p>
             </div>
