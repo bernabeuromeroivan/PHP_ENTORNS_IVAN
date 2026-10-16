@@ -29,12 +29,11 @@
         include "includes/header.php";
 
         ?>
-        <div>
-            <h2>Productos disponibles</h2>
-        </div>
-        <button type="button" class="btn btn-secondary my-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            Mi perfil 🖐
-        </button>
+        <?php
+
+        include "includes/funciones.php";
+
+        ?>
         <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
