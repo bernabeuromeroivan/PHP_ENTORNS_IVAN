@@ -1,0 +1,91 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f4f6f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Permite acomodar los dos formularios uno al lado del otro si hay espacio */
+    gap: 30px;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+form {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Sombra suave para dar profundidad */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Efecto de elevación ligera al pasar el ratón por la tarjeta */
+form:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+label {
+    font-weight: 600;
+    color: #333333;
+    font-size: 0.95rem;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="url"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1.5px solid #cccccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="url"]:focus {
+    border-color: #00805b;
+    box-shadow: 0 0 0 3px rgba(0, 128, 91, 0.15); /* Resalte verde elegante */
+}
+
+input[type="submit"] {
+    background-color: #00805b;
+    color: #ffffff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.1s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+input[type="submit"]:active {
+    transform: scale(0.98);
+}
+
+img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 10px;
+    object-fit: cover;
+}
