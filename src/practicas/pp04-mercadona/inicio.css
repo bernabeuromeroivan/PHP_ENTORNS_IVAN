@@ -29,7 +29,6 @@ form {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Efecto de elevación ligera al pasar el ratón por la tarjeta */
 form:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
@@ -57,7 +56,6 @@ input[type="text"]:focus,
 input[type="number"]:focus,
 input[type="url"]:focus {
     border-color: #00805b;
-    box-shadow: 0 0 0 3px rgba(0, 128, 91, 0.15); /* Resalte verde elegante */
 }
 
 input[type="submit"] {
@@ -70,7 +68,6 @@ input[type="submit"] {
     font-weight: bold;
     cursor: pointer;
     margin-top: 10px;
-    transition: background-color 0.3s ease, color 0.3s ease, transform 0.1s ease;
 }
 
 input[type="submit"]:hover {
