@@ -1,0 +1,132 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 1300px;
+  margin: 0 auto;
+  height: 100vh;
+  background-color: #F4F7FE;
+}
+
+.custom-header {
+  background-color: #102a45;     
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  width: 100%;
+}
+
+.header-left {
+  width: 220px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.logo-box {
+  background-color: #f38b22;
+  color: #102a45;
+  font-weight: bold;
+  font-size: 14px;
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-titles {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-title {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-size: 11px;
+  color: #a0b3c6;
+  margin-top: 2px;
+}
+
+.header-center {
+  width: 500px;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-right {
+  width: 220px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.module-title {
+  font-size: 13px;
+  color: #ffffff;
+  font-weight: 400;
+}
+
+.banner-section {
+  background-color: #102a45;
+  color: #ffffff;
+  border-radius: 12px;
+  padding: 24px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 1100px;
+  margin: 30px auto;
+}
+
+.banner-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.banner-tag {
+  color: #f38b22;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+
+.banner-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  line-height: 1.1;
+}
+
+.banner-description {
+  font-size: 13px;
+  color: #a0b3c6;
+  font-weight: 400;
+}
+
+.banner-button {
+  background-color: #f38b22;
+  color: #102a45;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+}
