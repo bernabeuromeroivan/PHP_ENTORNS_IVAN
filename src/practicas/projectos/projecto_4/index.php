@@ -25,9 +25,9 @@ $encarrecTrobat = null;
             </div>
             <button class="banner-button">+ Nou encàrrec</button>
         </section>
+        <p>Encarrecs: <?= count($encarrecs) ?></p>
+        <p>hores: <?= array_sum(array_column($encarrecs, 'hores')) ?></p>
         <?php foreach ($encarrecs as $e):?>
-            <p>Encarrecs: <?= count($encarrecs) ?></p>
-            <p>hores: <?= array_sum(array_column($encarrecs, 'hores')) ?></p>
         <?php endforeach ?>
     </div>
 </body>
