@@ -16,7 +16,6 @@ $encarrecTrobat = null;
 <body>
     <div class="container">
         <?php include "includes/header.php"; ?>
-
         <section class="banner-section">
             <div class="banner-content">
                 <span class="banner-tag">AGÈNCIA WEB · TAULER DE PROJECTES</span>
@@ -25,10 +24,31 @@ $encarrecTrobat = null;
             </div>
             <button class="banner-button">+ Nou encàrrec</button>
         </section>
-        <p>Encarrecs: <?= count($encarrecs) ?></p>
-        <p>hores: <?= array_sum(array_column($encarrecs, 'hores')) ?></p>
-        <?php foreach ($encarrecs as $e):?>
-        <?php endforeach ?>
+        <div class="encargos">
+            <p>Total de encarrecs: <?= count($encarrecs) ?></p>
+            <p>Hores estimades: <?= array_sum(array_column($encarrecs, 'hores')) ?></p>            
+        </div>
+        <div class="subtitulo">
+            <span>Projectes actius</span>
+            <h2>Llistat d'encarrecs</h2>            
+        </div>
+        <div class="cards">
+            <?php foreach ($encarrecs as $id=>$e):?>
+                <div class="card">
+                    <div class="card-header">
+                        <span class="badge-pendent"><?= $e['estat'] ?></span>
+                        <span class="card-time"><?= $e['hores'] ?> h</span>
+                    </div>
+                    <h3 class="card-title"><?= $e['titol'] ?></h3>
+                    <div class="card-client">Client: <strong><?= $e['client'] ?></strong></div>
+                    <div class="card-tags"><?= implode(' · ', $e['etiquetes']) ?></div>
+                    <div class="card-actions">
+                        <button class="btn-primary"><a href="detall.php?id=<?= $id ?> ">Veure detall</a></button>
+                        <button class="btn-danger">Eliminar</button>
+                    </div>
+                </div>
+            <?php endforeach ?>
+        </div>
     </div>
 </body>
 </html>
