@@ -28,7 +28,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         <input type="text" name="name" id="name">
         <label for="">Contrasenya: </label>
         <input type="password" name="passwd" id="passwd">
-        <input type="submit">
+            
     </form>
 </body>
 </html>
