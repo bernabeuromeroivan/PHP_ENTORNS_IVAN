@@ -1,6 +1,8 @@
 <?php
 
-$encarrecs = [
+session_start();
+
+$_SESSION['encarrecs'] = [
     [
         "titol" => "Web d'una cafeteria",
         "client" => "Cafè del Barri",
