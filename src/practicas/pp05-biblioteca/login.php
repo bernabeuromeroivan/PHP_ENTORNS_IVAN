@@ -1,9 +1,16 @@
 <?php
-session_start();
 
 $usuaris = [
-    ["username" => "admin", "password" => password_hash("adminpass", PASSWORD_DEFAULT), "role" => "admin"],
-    ["username" => "reader", "password" => password_hash("readerpass", PASSWORD_DEFAULT), "role" => "lector"]
+    [
+        "username" => "admin", 
+        "password" => password_hash("adminpass", PASSWORD_DEFAULT), 
+        "role" => "admin"
+    ],
+    [
+        "username" => "reader", 
+        "password" => password_hash("readerpass", PASSWORD_DEFAULT), 
+        "role" => "lector"
+    ]
 ];
 
 $error = "";
@@ -12,6 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $usuari = $_POST['user'] ?? '';
     $password = $_POST['passwd'] ?? '';
     $loginCorrecto = false;
+
     foreach ($usuaris as $u) {
         if ($u['username'] === $usuari && password_verify($password, $u['password'])) {
             $_SESSION['username'] = $u['username'];
@@ -47,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="signin">
             <div class="content text-center">
                 <h2>Inicia sesión</h2>
-                <form method="POST" action="home.php">
+                <form method="POST" action="">
                     <div class="inputBox">
                         <input class="p-2 m-2" placeholder="Username" type="text" name="user" required>
                     </div>  
@@ -56,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </div>
                     
                     <?php if (!empty($error)) : ?>
-                        <div class="alert alert-danger m-2"><?= $error ?></div>
+                        <div class="alert alert-danger m-2"><?= htmlspecialchars($error) ?></div>
                     <?php endif; ?>
                     
                     <div class="inputBox">

@@ -45,44 +45,32 @@ if(!isset($_SESSION['username'])){
                     <i class="fas fa-plus-circle me-2"></i>Agregar Nuevo Libro
                 </a>
             </div>
-        
-
         <!-- Mostrar lista de libros en un grid de tarjetas con tamaño uniforme -->
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-            
+            <?php foreach ($_SESSION['libros'] as $index => $libro): ?>
                 <div class="col">
                     <div class="card h-100 shadow-sm">
-                        <?php foreach ($_SESSION['libros'] as $index => $libros): ?>
-                            <div class="card mb-3">
-                                <img src="<?= ($libros['imagen']) ?>" class="card-img-top" alt="Portada de <?= ($libros['titulo']) ?>">
-                                <div class="card-body">
-                                    <h5 class="card-title"><?= ($libros['titulo']) ?></h5>
-                                    <p class="card-text"><strong>Autor:</strong> <?= ($libros['autor']) ?></p>
-                                    <p class="card-text"><?= ($libros['descripcion']) ?></p>
-                                    
-                                    <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
-                                        <div class="d-flex gap-2 mt-3">
-                                            <a href="add_edit_book.php?id=<?= $index ?>" class="btn btn-warning btn-sm">Editar</a>
-                                            <a href="delete_book.php?id=<?= $index ?>" class="btn btn-danger btn-sm">Eliminar</a>
-                                        </div>
-                                    <?php endif; ?>
+                        <img src="<?= ($libro['imagen']) ?>" class="card-img-top" alt="Portada de <?= ($libro['titulo']) ?>">
+                        
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title"><?= ($libro['titulo']) ?></h5>
+                            <p class="card-text"><strong>Autor:</strong> <?= ($libro['autor']) ?></p>
+                            <p class="card-text"><?= ($libro['descripcion']) ?></p>
+                            
+                            <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
+                                <div class="mt-auto pt-3 d-flex gap-2 border-top">
+                                    <a href="add_edit_book.php?id=<?= $index ?>" class="btn btn-warning btn-sm w-100 d-flex align-items-center justify-content-center gap-1">
+                                        <i class="fas fa-edit"></i> Editar
+                                    </a>
+                                    <a href="delete_book.php?id=<?= $index ?>" class="btn btn-danger btn-sm w-100 d-flex align-items-center justify-content-center gap-1">
+                                        <i class="fas fa-trash-alt"></i> Eliminar
+                                    </a>
                                 </div>
-                            </div>
-                        <?php endforeach; ?>
-                      
-                        <!-- Botones de editar y eliminar (solo visible para el admin) -->
-                            <div class="card-footer d-flex justify-content-between">
-                                <a href="" class="btn btn-outline-primary btn-sm">
-                                    <i class="fas fa-edit"></i> Editar
-                                </a>
-                                <a href="" class="btn btn-outline-danger btn-sm">
-                                    <i class="fas fa-trash-alt"></i> Eliminar
-                                </a>
-                            </div>
-                      
+                            <?php endif; ?>
+                        </div>
                     </div>
                 </div>
-           
+            <?php endforeach; ?>
         </div>
     </div>
 
