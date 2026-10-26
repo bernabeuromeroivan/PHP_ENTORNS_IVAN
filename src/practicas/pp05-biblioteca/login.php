@@ -1,6 +1,8 @@
 <?php
 
-$usuaris = [
+session_start();
+
+$_SESSION["usuaris"] = [
     [
         "username" => "admin", 
         "password" => password_hash("adminpass", PASSWORD_DEFAULT), 
@@ -44,18 +46,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biblioteca Virtual - Login</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <section>
-        <?php for ($i = 0; $i < 180; $i++): ?>
-            <span></span>
-        <?php endfor; ?>
         <div class="signin">
             <div class="content text-center">
                 <h2>Inicia sesión</h2>
-                <form method="POST" action="">
+                <form method="POST" action="login.php">
                     <div class="inputBox">
                         <input class="p-2 m-2" placeholder="Username" type="text" name="user" required>
                     </div>  
