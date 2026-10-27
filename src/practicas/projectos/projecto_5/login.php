@@ -12,6 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['nivell'] = $dificultat;
         $_SESSION['index'] = 0;
         $_SESSION['identificat'] = true;
+        $_SESSION['completat'] = false;
 
         header('Location: joc.php');
         exit();

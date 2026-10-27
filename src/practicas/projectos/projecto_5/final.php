@@ -1,8 +1,13 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['identificat'])) {
-    header('Location: joc.php');
+if (!isset($_SESSION['identificat']) || $_SESSION['identificat'] !== true) {
+    header('Location: login.php');
+    exit();
+}
+
+if (!isset($_SESSION['completat']) || $_SESSION['completat'] !== true) {
+    header('Location: login.php');
     exit();
 }
 

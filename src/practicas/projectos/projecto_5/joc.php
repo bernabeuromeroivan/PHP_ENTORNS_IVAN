@@ -2,7 +2,7 @@
 session_start();
 require_once 'dades.php';
 
-if (!isset($_SESSION['identificat'])) {
+if (!isset($_SESSION['identificat']) || $_SESSION['identificat'] !== true) {
     header('Location: login.php');
     exit();
 }
@@ -27,6 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($nivell === 'facil') $_SESSION['nivell'] = 'mitja';
             elseif ($nivell === 'mitja') $_SESSION['nivell'] = 'dificil';
             else {
+                $_SESSION['completat'] = true;
                 header('Location: final.php');
                 exit();
             }
@@ -43,6 +44,9 @@ $index = $_SESSION['index'];
 <html lang="ca">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <title>Joc</title>
 </head>
 <body>
