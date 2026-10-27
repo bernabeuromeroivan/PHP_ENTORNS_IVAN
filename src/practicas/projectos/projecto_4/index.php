@@ -120,7 +120,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["eliminar"])) {
                         <label>Etiquetes</label>
                         <input type="text" name="etiquetes" placeholder="PHP, Docker, Responsive" value="PHP, Docker, Responsive">
                     </div>
-                    <button type="submit" name="afegir" class="boto-afegir">Afegir encàrrec</button>
+                    <button type="submit" name="afegir" class="boto-afegir">Afegir encarrec</button>
                 </form>
             </div>
         </section>
