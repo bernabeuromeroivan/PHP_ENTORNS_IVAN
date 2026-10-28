@@ -52,7 +52,6 @@ function editarLibro($id, $titulo, $autor, $imagen, $descripcion) {
 function eliminarLibro($id) {
     if (isset($_SESSION['libros'][$id])) {
         unset($_SESSION['libros'][$id]);
-        // Reindexar el array para evitar huecos en los índices
         $_SESSION['libros'] = array_values($_SESSION['libros']);
         return true;
     }

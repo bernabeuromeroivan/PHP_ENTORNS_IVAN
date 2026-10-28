@@ -1,19 +1,20 @@
 <?php
-
 session_start();
 
-$_SESSION["usuaris"] = [
-    [
-        "username" => "admin", 
-        "password" => password_hash("adminpass", PASSWORD_DEFAULT), 
-        "role" => "admin"
-    ],
-    [
-        "username" => "reader", 
-        "password" => password_hash("readerpass", PASSWORD_DEFAULT), 
-        "role" => "lector"
-    ]
-];
+if (!isset($_SESSION["usuaris"])) {
+    $_SESSION["usuaris"] = [
+        [
+            "username" => "admin", 
+            "password" => password_hash("adminpass", PASSWORD_DEFAULT), 
+            "role" => "admin"
+        ],
+        [
+            "username" => "reader", 
+            "password" => password_hash("readerpass", PASSWORD_DEFAULT), 
+            "role" => "lector"
+        ]
+    ];
+}
 
 $error = "";
 
@@ -22,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['passwd'] ?? '';
     $loginCorrecto = false;
 
-    foreach ($usuaris as $u) {
+    foreach ($_SESSION["usuaris"] as $u) {
         if ($u['username'] === $usuari && password_verify($password, $u['password'])) {
             $_SESSION['username'] = $u['username'];
             $_SESSION['role'] = $u['role'];
@@ -75,4 +76,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </section>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-</html>
+</html> 
