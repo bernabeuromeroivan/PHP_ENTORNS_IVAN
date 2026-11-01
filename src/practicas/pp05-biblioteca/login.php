@@ -64,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </div>
                     
                     <?php if (!empty($error)) : ?>
-                        <div class="alert alert-danger m-2"><?= htmlspecialchars($error) ?></div>
+                        <div class="alert alert-danger m-2"><?= ($error) ?></div>
                     <?php endif; ?>
                     
                     <div class="inputBox">
