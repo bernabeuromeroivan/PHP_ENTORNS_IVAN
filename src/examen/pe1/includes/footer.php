@@ -1,0 +1,1 @@
+<footer class="peu">AQUEST FOOTER HA DE SER REUTILITZABLE</footer>
