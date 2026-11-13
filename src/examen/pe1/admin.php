@@ -54,8 +54,7 @@ if (isset($_POST['borrar'])) {
                   <td><?php echo $p['categoria']; ?></td>
                   <td><?php echo $p['pregunta']; ?></td>
                   <td>
-                    <a class="btn btn-sec" href="pregunta_formulari.php?id=<?php echo $p['id']; ?>">Editar</a>
-                    
+                    <a class="btn btn-sec" href="pregunta_formulari.php">Editar</a>         
                     <form method="post" action="admin.php" style="display:inline;">
                       <input type="hidden" name="borrar" value="<?php echo $p['id']; ?>">
                       <button class="btn btn-perill" type="submit">Eliminar</button>

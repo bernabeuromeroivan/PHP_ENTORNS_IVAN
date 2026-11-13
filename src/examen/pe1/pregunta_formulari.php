@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-        <!-- AQUEST HEADER HA DE SER REUTILITZABLE -->
 
     <?php include_once "includes/header.php" ?>
 

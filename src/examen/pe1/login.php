@@ -1,27 +1,23 @@
 <?php
 include_once "dades.php";
 
-$incorrecto = "";
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $usuari = $_POST['usuari'] ?? '';
-    $password = $_POST['password'] ?? '';
-    $loginCorrecto = false;
+    $usuario = $_POST['usuari'] ?? '';
+    $contrasenya = $_POST['password'] ?? '';
+    $login = false;
 
     foreach ($_SESSION['usuaris'] as $u) {
-        if ($u['usuari'] === $usuari && password_verify($password, $u['password'])) {
+        if ($u['usuari'] === $usuario && password_verify($contrasenya, $u['password'])) {
             $_SESSION['usuari'] = $u['usuari'];
             $_SESSION['rol'] = $u['rol'];
-            $loginCorrecto = true;
+            $login = true;
             break;
         }
     }
 
-    if ($loginCorrecto) {
+    if ($login) {
         header('Location: joc.php');
         exit;
-    } else {
-        $incorrecto = "Usuario o contraseña incorrectos.";
     }
 }
 ?>

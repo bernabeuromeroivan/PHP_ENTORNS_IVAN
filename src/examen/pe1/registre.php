@@ -4,28 +4,28 @@ include_once "dades.php";
 $mensaje = "";
 
 if (isset($_POST['usuari'])) {
-    $usuari = $_POST['usuari'];
+    $usuario = $_POST['usuari'];
     $pass1 = $_POST['password'];
     $repetida = $_POST['repetida'];
 
     if ($pass1 != $repetida) {
         $mensaje = "Les contrasenyes no coincideixen.";
     } else {
-        $existeix = false;
+        $existe = false;
         foreach ($_SESSION['usuaris'] as $u) {
-            if ($u['usuari'] == $usuari) {
-                $existeix = true;
+            if ($u['usuari'] == $usuario) {
+                $existe = true;
             }
         }
 
-        if ($existeix) {
+        if ($existe) {
             $mensaje = "Aquest nom d'usuari ja existeix.";
         } else {
             $nou_id = count($_SESSION['usuaris']) + 1;
             
             $_SESSION['usuaris'][] = [
                 "id" => $nou_id,
-                "usuari" => $usuari,
+                "usuari" => $usuario,
                 "password" => password_hash($pass1, PASSWORD_DEFAULT),
                 "rol" => "jugador"
             ];
