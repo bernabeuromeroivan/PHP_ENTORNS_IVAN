@@ -1,7 +1,7 @@
 <?php
 include_once "dades.php";
 
-$missatge = "";
+$mensaje = "";
 
 if (isset($_POST['usuari'])) {
     $usuari = $_POST['usuari'];
@@ -9,7 +9,7 @@ if (isset($_POST['usuari'])) {
     $repetida = $_POST['repetida'];
 
     if ($pass1 != $repetida) {
-        $missatge = "Les contrasenyes no coincideixen.";
+        $mensaje = "Les contrasenyes no coincideixen.";
     } else {
         $existeix = false;
         foreach ($_SESSION['usuaris'] as $u) {
@@ -19,7 +19,7 @@ if (isset($_POST['usuari'])) {
         }
 
         if ($existeix) {
-            $missatge = "Aquest nom d'usuari ja existeix.";
+            $mensaje = "Aquest nom d'usuari ja existeix.";
         } else {
             $nou_id = count($_SESSION['usuaris']) + 1;
             
@@ -30,7 +30,8 @@ if (isset($_POST['usuari'])) {
                 "rol" => "jugador"
             ];
 
-            $missatge = "Usuari registrat correctament! Ja pots iniciar sessió.";
+            $mensaje = "Usuari registrat correctament! Ja pots iniciar sessió.";
+            header('Location: login.php');
         }
     }
 }
@@ -53,8 +54,8 @@ if (isset($_POST['usuari'])) {
         <h1>Registre de jugador</h1>
         <p class="subtitol">Crea un compte per poder jugar.</p>
 
-        <?php if ($missatge != ""): ?>
-          <div class="alerta"><?php echo $missatge; ?></div>
+        <?php if ($mensaje != ""): ?>
+          <div class="alerta"><?php echo $mensaje; ?></div>
         <?php endif; ?>
 
         <form action="registre.php" method="post">
@@ -68,7 +69,7 @@ if (isset($_POST['usuari'])) {
           </label>
           <label class="camp">
             Repeteix la contrassenya
-            <input type="password" name="password2" required />
+            <input type="password" name="repetida" required />
           </label>
           <button class="btn" type="submit">Registrar-me</button>
         </form>

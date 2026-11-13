@@ -1,14 +1,21 @@
 <?php
-session_start();
+include_once "dades.php";
 
-if(isset($_SESSION['rol']) && $_SESSION['rol'] == "admin"){
-  header('Location: admin.php');
-}else{
-  header('Location: index.php');
+if (!isset($_SESSION['rol']) || $_SESSION['rol'] != "admin") {
+    header("Location: login.php");
+    exit();
 }
 
+if (isset($_POST['borrar'])) {
+    $borrar = $_POST['borrar'];
+    foreach ($_SESSION['preguntes'] as $index => $p) {
+        if ($p['id'] == $borrar) {
+            unset($_SESSION['preguntes'][$index]);
+        }
+    }
+    $_SESSION['preguntes'] = array_values($_SESSION['preguntes']);
+}
 ?>
-
 
 <!doctype html>
 <html lang="ca">
@@ -19,8 +26,6 @@ if(isset($_SESSION['rol']) && $_SESSION['rol'] == "admin"){
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-        <!-- AQUEST HEADER HA DE SER REUTILITZABLE -->
-
     <?php include_once "includes/header.php" ?>
 
     <main class="contenidor">
@@ -43,48 +48,27 @@ if(isset($_SESSION['rol']) && $_SESSION['rol'] == "admin"){
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td>Geografia</td>
-                <td>Quin és el continent amb més superfície?</td>
-                <td>
-                  <a class="btn btn-sec" href="pregunta_formulari.php"
-                    >Editar</a
-                  >
-                  <button class="btn btn-perill" type="button">Eliminar</button>
-                </td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Història</td>
-                <td>En quin any va començar la Revolució Francesa?</td>
-                <td>
-                  <a class="btn btn-sec" href="pregunta_formulari.php"
-                    >Editar</a
-                  >
-                  <button class="btn btn-perill" type="button">Eliminar</button>
-                </td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>Ciència i natura</td>
-                <td>Quin planeta és conegut com el planeta vermell?</td>
-                <td>
-                  <a class="btn btn-sec" href="pregunta_formulari.php"
-                    >Editar</a
-                  >
-                  <button class="btn btn-perill" type="button">Eliminar</button>
-                </td>
-              </tr>
+              <?php foreach ($_SESSION['preguntes'] as $p): ?>
+                <tr>
+                  <td><?php echo $p['id']; ?></td>
+                  <td><?php echo $p['categoria']; ?></td>
+                  <td><?php echo $p['pregunta']; ?></td>
+                  <td>
+                    <a class="btn btn-sec" href="pregunta_formulari.php?id=<?php echo $p['id']; ?>">Editar</a>
+                    
+                    <form method="post" action="admin.php" style="display:inline;">
+                      <input type="hidden" name="borrar" value="<?php echo $p['id']; ?>">
+                      <button class="btn btn-perill" type="submit">Eliminar</button>
+                    </form>
+                  </td>
+                </tr>
+              <?php endforeach; ?>
             </tbody>
           </table>
         </div>
-        <p class="nota">
-          Les accions són decoratives: VOSALTRES heu de programar el CRUD, la
-          confirmació d'eliminació i la protecció del rol. 
-        </p>
       </section>
     </main>
+
     <?php include_once "includes/footer.php" ?>
   </body>
 </html>

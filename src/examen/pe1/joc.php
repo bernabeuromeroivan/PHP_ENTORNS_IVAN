@@ -1,24 +1,20 @@
 <?php
 include_once "dades.php";
 
-if(!isset($_SESSION['username'])){
-  header('Location: index.php');
-}
-
 if (!isset($_SESSION['actual'])) {
     $_SESSION['actual'] = 0;
-    $_SESSION['punts'] = 0;
+    $_SESSION['puntos'] = 0;
 }
 
-$missatge = "";
+$mensaje = "";
 
 if (isset($_POST['resposta'])) {
     $actual = $_SESSION['actual'];
     if ($_POST['resposta'] == $_SESSION['preguntes'][$actual]['correcta']) {
-        $_SESSION['punts']++;
-        $missatge = "Correcte!";
+        $_SESSION['puntos']++;
+        $mensaje = "Correcte!";
     } else {
-        $missatge = "Incorrecte!";
+        $mensaje = "Incorrecte!";
     }
     
     $_SESSION['actual']++;
@@ -26,6 +22,7 @@ if (isset($_POST['resposta'])) {
 
 $actual = $_SESSION['actual'];
 $total = count($_SESSION['preguntes']);
+$pendientes = $total - $actual;
 ?>
 
 <!doctype html>
@@ -46,9 +43,9 @@ $total = count($_SESSION['preguntes']);
         <p class="subtitol">Respon la pregunta i continua avançant.</p>
         
         <div class="estadistiques">
-          <span><strong>Puntuació:</strong> <?php echo $_SESSION['punts']; ?> punts</span>
+          <span><strong>Puntuació:</strong> <?php echo $_SESSION['puntos']; ?> punts</span>
           <span><strong>Progrés:</strong> <?php echo $actual; ?> de <?php echo $total; ?></span>
-          <span><strong>Pendents:</strong> <?php echo $total - $actual; ?></span>
+          <span><strong>Pendents:</strong> <?php echo $pendientes; ?></span>
         </div>
 
         <?php if ($actual < $total): ?>
@@ -58,10 +55,10 @@ $total = count($_SESSION['preguntes']);
           <h2 style="margin-top: 15px"><?php echo $p['pregunta']; ?></h2>
           
           <form method="post" action="joc.php">
-            <?php foreach ($p['opcions'] as $num => $opcio): ?>
+            <?php foreach ($p['opcions'] as $num => $opcion): ?>
               <label class="resposta">
                 <input type="radio" name="resposta" value="<?php echo $num; ?>" required />
-                <?php echo $opcio; ?>
+                <?php echo $opcion; ?>
               </label>
             <?php endforeach; ?>
             
@@ -70,11 +67,11 @@ $total = count($_SESSION['preguntes']);
 
         <?php else: ?>
           <h2>Joc acabat!</h2>
-          <p>Has aconseguit <?php echo $_SESSION['punts']; ?> punts.</p>
+          <p>Has aconseguit <?php echo $_SESSION['puntos']; ?> punts.</p>
         <?php endif; ?>
 
-        <?php if ($missatge != ""): ?>
-          <div class="alerta"><?php echo $missatge; ?></div>
+        <?php if ($mensaje != ""): ?>
+          <div class="alerta"><?php echo $mensaje; ?></div>
         <?php endif; ?>
 
       </section>

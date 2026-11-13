@@ -1,7 +1,7 @@
 <?php
 include_once "dades.php";
 
-$error = "";
+$incorrecto = "";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $usuari = $_POST['usuari'] ?? '';
@@ -18,10 +18,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if ($loginCorrecto) {
-        header('Location: index.php');
+        header('Location: joc.php');
         exit;
     } else {
-        $error = "Usuario o contraseña incorrectos.";
+        $incorrecto = "Usuario o contraseña incorrectos.";
     }
 }
 ?>

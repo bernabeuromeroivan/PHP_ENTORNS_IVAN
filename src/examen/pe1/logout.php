@@ -1,30 +1,17 @@
 <?php
-//session_start();
+session_start();
 
-// if (
-//     $_SERVER["REQUEST_METHOD"] === "POST" &&  isset( $_POST["accio"] ) && $_POST["accio"] === "reiniciar"
-// ) {
+if ($_SERVER["REQUEST_METHOD"] === "POST" &&  isset( $_POST["accion"] ) && $_POST["accion"] === "reiniciar") {
+    if (!isset( $_SESSION["usuari_actiu"] ) || $_SESSION["usuari_actiu"]["rol"] !== "admin") {
+        header( "Location: login.php" );
+        exit;
+    }
+    $_SESSION = [];
+    session_destroy();
 
-//     // Només ADMIN
-//     if (
-//         ! isset( $_SESSION["usuari_actiu"] ) ||
-//         $_SESSION["usuari_actiu"]["rol"] !== "admin"
-//     ) {
-//         header( "Location: login.php" );
-//         exit;
-//     }
-
-//     // DESTROY
-//     $_SESSION = [];
-//     session_destroy();
-
-// } else {
-
-//     // Logout normal. Només destruim els calaixos (UNSET)
-//     unset( $_SESSION["usuari_actiu"] );
-//     unset( $_SESSION["partida"] );
-
-// }
-
-// header( "Location: index.php" );
-// exit;
+    } else {
+        unset( $_SESSION["usuari_actiu"] );
+        unset( $_SESSION["partida"] );
+}
+header( "Location: index.php" );
+exit;
