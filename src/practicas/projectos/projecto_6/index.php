@@ -93,7 +93,7 @@ include_once "funciones.php";
             color: #cbd5e1;
         }
 
-        .form-apuesta input[type="number"],
+        .form-apuesta input[type="number"],.form-apuesta input[type="text"],
         .form-apuesta select {
             background: #1e293b;
             border: 1px solid #334155;
@@ -157,9 +157,21 @@ include_once "funciones.php";
                 <option value="negro">Negro</option>
                 <option value="par">Par</option>
                 <option value="impar">Impar</option>
+                <option value="caballo">Caballo</option>
+                <option value="transversal">Transversal</option>
+                <option value="primeros18">Del 1 al 18</option>
+                <option value="ultimos18">Del 19 al 38</option>
+                <option value="primeros12">Primera Docena</option>
+                <option value="segundos12">Segunda Docena</option>
+                <option value="terceros12">Tercera Docena</option>
+                <option value="primeracolumna">Primera Columna</option>
+                <option value="segundacolumna">Segunda Columna</option>
+                <option value="terceracolumna">Tercera Columna</option>
             </select>
             <label for="numero">Número:</label>
-            <input type="number" id="numero" name="Numero" min="0" max="36" placeholder="Número">
+            <input type="number" id="numero" name="Numero" placeholder="Número">
+            <label for="numero">Caballo:</label>
+            <input type="text" id="numeros" name="numeros" placeholder="N1,N2">
             <button type="submit" class="btn-apostar">Jugar</button>
             <a href="reset.php" class="btn-apostar" style="background-color: #dc2626;">Reiniciar Juego</a>
         </form>
