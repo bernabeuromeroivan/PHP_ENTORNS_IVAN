@@ -1,0 +1,150 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --fondo: #f4f5f9;
+    --tarjeta: #ffffff;
+    --texto: #1c1c28;
+    --gris: #7a7f8e;
+    --acento: #ff4d2e;
+    --acento-oscuro: #d93a1f;
+    --sombra: 0 4px 14px rgba(20, 20, 40, 0.08);
+    --sombra-hover: 0 16px 34px rgba(20, 20, 40, 0.18);
+}
+
+body {
+    font-family: "Segoe UI", system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
+    background: var(--fondo);
+    color: var(--texto);
+    min-height: 100vh;
+    padding: 0 20px 60px;
+}
+
+h1 {
+    text-align: center;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin: 50px 0 40px;
+}
+
+h1::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 5px;
+    margin: 14px auto 0;
+    border-radius: 3px;
+    background: var(--acento);
+}
+
+.catalogo {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 28px;
+}
+
+.tarjeta {
+    background: var(--tarjeta);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: var(--sombra);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--sombra-hover);
+}
+
+.tarjeta img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    background: #e9eaf0;
+    transition: transform 0.4s ease;
+}
+
+.tarjeta:hover img {
+    transform: scale(1.06);
+}
+
+.tarjeta {
+    position: relative;
+}
+
+.marca {
+    margin: 18px 20px 0;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--acento);
+}
+
+.modelo {
+    margin: 6px 20px 0;
+    font-size: 1.3rem;
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+.detalles {
+    margin-top: auto;
+    padding: 18px 20px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #eef0f5;
+    margin-top: 18px;
+}
+
+.talla {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--gris);
+    background: var(--fondo);
+    padding: 6px 12px;
+    border-radius: 20px;
+}
+
+.precio {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--texto);
+}
+
+.tarjeta:hover .precio {
+    color: var(--acento-oscuro);
+}
+
+.catalogo > p {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px 20px;
+    background: var(--tarjeta);
+    border-radius: 14px;
+    box-shadow: var(--sombra);
+    color: var(--gris);
+    font-size: 1.1rem;
+}
+
+@media (max-width: 600px) {
+    .catalogo {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .tarjeta img {
+        height: 200px;
+    }
+}
