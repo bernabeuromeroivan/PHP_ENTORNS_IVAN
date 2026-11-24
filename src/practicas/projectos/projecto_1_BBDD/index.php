@@ -11,7 +11,6 @@ if (isset($_GET['eliminar'])) {
 
 $categorias = $pdo->query('SELECT id, nombre FROM categorias')->fetchAll();
 
-// 4. Comprobamos si el usuario ha elegido alguna categoría para filtrar
 $categoriaSeleccionada = $_GET['categoria'] ?? '';
 
 if ($categoriaSeleccionada !== '') {
@@ -28,7 +27,7 @@ if ($categoriaSeleccionada !== '') {
 <head>
     <meta charset="UTF-8">
     <title>Mi Tienda - Resell</title>
-    <link rel="stylesheet" href="styles.css?v=2">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -37,7 +36,6 @@ if ($categoriaSeleccionada !== '') {
             <a href="index.php" class="logo">Re<span>sell</span></a>
             
             <nav class="nav">
-                <!-- Desplegable para filtrar: al cambiar, recarga la página con ?categoria=ID -->
                 <select class="filtro-select" onchange="window.location.href = this.value ? 'index.php?categoria=' + this.value : 'index.php';">
                     <option value="">Todas las categorías</option>
                     <?php foreach ($categorias as $cat): ?>
@@ -56,7 +54,6 @@ if ($categoriaSeleccionada !== '') {
 
     <div class="catalogo">
         <?php if (count($anuncios) > 0): ?>
-            
             <?php foreach ($anuncios as $item): ?>
                 <div class="tarjeta">
                     <img src="<?php echo $item['foto']; ?>" alt="Foto">
@@ -72,7 +69,6 @@ if ($categoriaSeleccionada !== '') {
                     </div>
                 </div>
             <?php endforeach; ?>
-
         <?php else: ?>
             <p>No hay anuncios en esta categoría.</p>
         <?php endif; ?>

@@ -1,15 +1,12 @@
 <?php
-// 1. Conectamos a la base de datos
 require_once('config.php');
 $pdo = db();
 
 $mensaje = "";
 
-// 2. Cargamos las categorías y los usuarios de la base de datos
 $categorias = $pdo->query("SELECT id, nombre FROM categorias")->fetchAll();
 $usuarios   = $pdo->query("SELECT id, nombre FROM usuarios")->fetchAll();
 
-// 3. Comprobamos si el usuario ha pulsado el botón "Publicar"
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $titulo       = $_POST['titulo'] ?? '';
     $descripcion  = $_POST['descripcion'] ?? '';
@@ -18,7 +15,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $categoria_id = $_POST['categoria_id'] ?? '';
     $usuario_id   = $_POST['usuario_id'] ?? '';
 
-    // 4. Guardamos todos los datos incluyendo ahora usuario_id
     $sql = "INSERT INTO anuncios (titulo, descripcion, precio, foto, categoria_id, usuario_id) 
             VALUES (:titulo, :descripcion, :precio, :foto, :categoria_id, :usuario_id)";
     $stmt = $pdo->prepare($sql);
@@ -32,8 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'categoria_id' => $categoria_id,
             'usuario_id'   => $usuario_id
         ]);
-        
-        // Volvemos automáticamente al catálogo
+
         header('Location: index.php');
         exit;
     } catch (PDOException $e) {
