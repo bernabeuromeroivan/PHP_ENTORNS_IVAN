@@ -66,6 +66,10 @@ if ($categoriaSeleccionada !== '') {
                            onclick="return confirm('¿Seguro que quieres eliminar este anuncio?');">
                            Eliminar
                         </a>
+                        <a href="detalles.php?detalles=<?php echo $item['id'] ?>" 
+                            class="btn-detalles">
+                            Detalles
+                        </a>
                     </div>
                 </div>
             <?php endforeach; ?>
