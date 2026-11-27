@@ -11,8 +11,8 @@ $error = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id = $_POST['id'];
-    $nom = trim($_POST['nom'] ?? '');
-    $genere = trim($_POST['genere'] ?? '');
+    $nom = ($_POST['nom'] ?? '');
+    $genere = ($_POST['genere'] ?? '');
 
     if ($nom !== '' && $genere !== '') {
         $sql = 'UPDATE videojocs SET nom = :nom, genere = :genere WHERE id = :id';
